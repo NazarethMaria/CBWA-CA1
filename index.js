@@ -9,6 +9,8 @@ const usersController = require("./controller/users")();
 const issuesController = require("./controller/issues")();
 const commentsController = require("./controller/comments")();
 
+//     FROM PDF 14:     const users = require("./models/users")();
+
 const app = (module.exports = express());
 
 // logging
@@ -42,9 +44,8 @@ app.get("/issues", issuesController.getController);
 app.get("/issues/:id", issuesController.getById);
 // --- Get all issues for a project ------------
 // app.get("/issues/populated", issuesController.populatedController);
-// --- BONUS: update the status of an issues ?????????
 // --- Add new issues to a project individualy -----------
-app.post("/issues/:issuesNumber", issuesController.postController); 
+app.post("/projects/:slug/issues", issuesController.postController); 
 
 // --- Issues have comments ---
 // --- Get all comments for an issues ----

@@ -47,6 +47,7 @@ module.exports = () => {
             MongoClient.connect(uri, MONGO_OPTIONS, (err, client) => {
                 const db = client.db(DB_NAME);
                 const collection = db.collection(collectionName);
+                
                 collection.aggregate(pipeline).toArray((err, docs) => {
                     if (err) {
                         console.log(" --- aggregate ERROR ---");

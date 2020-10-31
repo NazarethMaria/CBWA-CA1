@@ -2,27 +2,27 @@ const comments = require('../models/comments.js')();
 
 module.exports = () => {
     
-    const getController = (req, res) => {
-        res.setHeader('Content-Type', 'application/json');
-        return res.json(comments.get());
+    const getController = async (req, res) => {
+        res.json(await comments.get());
     }
 
     const getById = (req, res) => {
-        res.setHeader('Content-Type', 'application/json');
-        res.json(comments.get(req.params.id));
+        res.json({ error: "byId not implemented yet"});
     }
 
     // add new issues to a project individually 
- const postController = (req, res) => {
+ const postController = async (req, res) => {
+     const issuesNumber = req.params.issuesNumber;
      const text = req.body.text;
      const author = req.body.author;
-     comments.add(text, author);
-     return res.end(`POST: ${text, author}`);
- } 
+     const status = req.body.status;
+     const result = await comments.add(issuesNumber, text, author);
+     res.json(result); 
+ }
 
 return {
     getController,
-    postController,  
+    postController,
     getById
  }
 } 

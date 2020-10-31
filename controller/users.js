@@ -14,8 +14,9 @@ const postController = async (req, res) => {
     const name = req.body.name;
     const email = req.body.email; 
     const usertype = req.body.usertype;
-    const results = await users.add(name, email, usertype); 
-    res.json(result); 
+    const key = req.body.key;
+    const results = await users.add(name, email, usertype, key); 
+    res.json(results); 
  }
  
 return {

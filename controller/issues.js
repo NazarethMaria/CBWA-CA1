@@ -12,11 +12,11 @@ module.exports = () => {
 
     // add new issues to a project individually 
  const postController = async (req, res) => {
-     const issuesNumber = req.params.issuesNumber;
+     const slug = req.params.slug;
      const title = req.body.title;
      const description = req.body.description;
      const status = req.body.status;
-     const result = await issues.add(issuesNumber, title, description, status);
+     const result = await issues.add(slug, title, description, status);
      res.json(result); 
  }
 

@@ -12,13 +12,14 @@ module.exports = () => {
         return user;
 }
     
-    const add = async (name, email, usertype) => {
+    const add = async (name, email, usertype, key) => {
         const userCount = await db.count(COLLECTION);
         const results = await db.add(COLLECTION, {
             id: userCount + 1,
             name: name,
             email: email,
-            usertype: usertype
+            usertype: usertype,
+            key: key
         });
         return results.results;
     }
