@@ -8,8 +8,8 @@ module.exports = () => {
         const users = await db.get(COLLECTION);
         return users; 
     }
-
-    return { error: "byEmail not implemented yet" }
+    const user = await db.get(COLLECTION, { email });
+        return user;
 }
     
     const add = async (name, email, usertype) => {
@@ -25,7 +25,7 @@ module.exports = () => {
     
     return {
      get,
-     add
+     add   
     }
 };
 

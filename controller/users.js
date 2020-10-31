@@ -7,7 +7,7 @@ const getController = async (req, res) => {
  }
 
 const getByEmail = async (req, res) => {
-    res.json({ error: "byEmail not implemented yet"}); 
+    res.json(await users.get(req.params.email)); 
  }
 
 const postController = async (req, res) => {

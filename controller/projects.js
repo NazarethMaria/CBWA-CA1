@@ -7,7 +7,7 @@ module.exports = () => {
     }
 
     const getBySlug = async (req, res) => {
-        res.json(await projects.get(parseInt(req.params.slug)));
+        res.json(await projects.get(req.params.slug));
     }
     
 const postController = async (req, res) => {

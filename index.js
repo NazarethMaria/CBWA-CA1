@@ -44,7 +44,7 @@ app.get("/issues/:id", issuesController.getById);
 // app.get("/issues/populated", issuesController.populatedController);
 // --- BONUS: update the status of an issues ?????????
 // --- Add new issues to a project individualy -----------
-app.post("/issues", projectsController.postController); // solo de da id y description 
+app.post("/issues/:issuesNumber", issuesController.postController); 
 
 // --- Issues have comments ---
 // --- Get all comments for an issues ----

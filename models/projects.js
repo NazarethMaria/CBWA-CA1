@@ -5,11 +5,12 @@ module.exports = () => {
     const get = async (slug = null) => {
         console.log('     inside projects model');
         if(!slug){
-            const projects = await db.get(COLLECTION, { slug }); 
+            const projects = await db.get(COLLECTION); 
             return projects; 
         }
 
-        return { error: "bySlug not implemented yet" }
+        const project = await db.get(COLLECTION, {slug});
+        return project;
     }
     
     const add = async (slug, name, description) => {
