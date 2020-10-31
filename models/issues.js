@@ -1,27 +1,32 @@
 const db = require('../db')();
+const COLLECTION = "issues";
 
 module.exports = () => {
-    const get = (id = null) => {
+    const get = async (id = null) => {
         console.log(' inside issues model');
-        if(!id){
-            return db.issues;
+        if (!id) {
+            const issues = await db.get(COLLECTION);
+            return issues;
         }
         
-        return db.issues[parseInt(id) - 1];
+        return { error: "byId not implemented yet" }
     }
     
-    const add = (issuesNumber, title, description, projectId) => {
-        return db.issues.push({
-            id: db.issues.length + 1,
-            issuesNumber: issuesNumber,
-            title: title,
-            description: description,
-            projectId: projectId
-        });
-    }
+const add = async (issuesNumber, title, description, projectId) => {
+    const issueCount = await db.count(COLLECTION);
+    const results = await db.add(COLLECTION, {
+        id: issueCount + 1,
+        issuesNumber: issuesNumber,
+        title: title,
+        description: description,
+        projectId: projectId
+    });
     
-    return {
-        get,
-        add
-    }
-};
+    return results.result;
+}
+
+return {
+    get,
+    add
+}
+}; 

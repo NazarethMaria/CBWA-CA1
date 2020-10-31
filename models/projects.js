@@ -1,22 +1,27 @@
 const db = require('../db')();
+const COLLECTION = "projects";
 
 module.exports = () => {
-    const get = (id = null) => {
-        console.log('    inside projects model');
-        if(!id){
-            return db.projects; 
+    const get = async (slug = null) => {
+        console.log('     inside projects model');
+        if(!slug){
+            const projects = await db.get(COLLECTION, { slug }); 
+            return projects; 
         }
 
-        return db.projects[parseInt(id) - 1];
+        return { error: "bySlug not implemented yet" }
     }
     
-    const add = (slug, name, description) => {
-        return db.projects.push({
-            id: db.projects.length + 1,
+    const add = async (slug, name, description) => {
+        const projectCount = await db.count(COLLECTION);
+        const results = await db.add(COLLECTION, {
+            id: projectCount + 1,
             slug: slug,
             name: name,
             description: description
         });
+
+        return results.results; 
     }
     
     return {

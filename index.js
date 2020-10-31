@@ -20,17 +20,17 @@ next();
 
 app.use(bodyParser.json());
 
-// --- Get all projects 
+// --- Get all projects slug
 app.get("/projects", projectsController.getController);
 // --- Get individual projects 
-app.get("/projects/:id", projectsController.getById);
+app.get("/projects/:slug", projectsController.getBySlug);
 // --- Add new projects indivudually 
 app.post("/projects", projectsController.postController);
 
-// --- Get all users
+// --- Get all users email 
 app.get("/users", usersController.getController);
 // --- Get individual users  
-app.get("/users/:email", usersController.getByEmail); // no me busca por email,  sale respuesta = 1 
+app.get("/users/:email", usersController.getByEmail); 
 // --- Add new users indivudually 
 app.post("/users", usersController.postController); 
 
