@@ -73,18 +73,16 @@ app.post("/users", usersController.postController);
 app.get("/issues", issuesController.getController);
 // --- Get individual issues 
 app.get("/issues/:id", issuesController.getById);
-// --- Get all issues for a project ------------
-// app.get("/issues/populated", issuesController.populatedController);
 // --- Add new issues to a project individualy -----------
 app.post("/projects/:slug/issues", issuesController.postController); 
 
 // --- Issues have comments ---
 // --- Get all comments for an issues ----
-app.get("/comments", commentsController.getController);
-// --- Get individual comments for an issues ----
-app.get("/comments/:id", commentsController.getById);
-// --- Add new comments to an issue ----
-app.post("/comments", commentsController.postController);
+// app.get("/comments", commentsController.getController);
+// // --- Get individual comments for an issues ----
+// app.get("/comments/:id", commentsController.getById);
+// // --- Add new comments to an issue ----
+// app.post("/comments", commentsController.postController);
 
 
 app.listen(port, hostname, () => {
