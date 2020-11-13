@@ -67,7 +67,6 @@ A list of features that will be implemented:
 * Checking error (Nov 2020) 
 * Start working on your frontend (Nov 2020)
 * Docker-ise the application (Nov 2020)
-* Add in email notifications (Nov 2020)
 
 ## Author info
 Created by https://github.com/NazarethMaria - feel free to contact me! 
