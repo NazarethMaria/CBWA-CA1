@@ -15,14 +15,14 @@ This project is the result of the Cloud Base Web Application subject carried out
 
 ## Setup
 * Clone the repository:  
-git clone  @https://github.com/NazarethMaria/CBWA-CA1/tree/a2 
+git clone  `https://github.com/NazarethMaria/CBWA-CA1/tree/a2`
 
 * Install NPM packages: 
-@npm install
+`npm install`
 
 * Execute: 
-@$Env:MONGO_URI="mongo path"
-@npm run start:dev
+`$Env:MONGO_URI="mongo path"`
+`npm run start:dev`
 
 ## Technologies
 * Node - version 12.18.3.
