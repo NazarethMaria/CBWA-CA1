@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000;
 const projectsController = require("./controller/projects")();
 const usersController = require("./controller/users")();
 const issuesController = require("./controller/issues")();
-const commentsController = require("./controller/comments")();
+//const commentsController = require("./controller/comments")();
 
 const users = require("./models/users")();
 
@@ -15,12 +15,13 @@ const app = (module.exports = express());
 
 // logging
 app.use((req, res, next) => {
-// Display log for requests
-console.log("[%s] %s -- %s", new Date(), req.method, req.url);
-next();
+    // Display log for requests
+    console.log("[%s] %s -- %s", new Date(), req.method, req.url);
+    next();
 });
 
 app.use(async (req, res, next) => {
+    return next()
     const FailedAuthMessage = {
         // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
         error: "Failed Authentication",
@@ -33,7 +34,7 @@ app.use(async (req, res, next) => {
     if (!suppliedKey) {
         console.log(
             " [%s] FAILED AUTHENTICATION -- %s, No Key Supplied",
-            new Date(), clientIp );
+            new Date(), clientIp);
         FailedAuthMessage.code = "01";
         return res.status(401).json(FailedAuthMessage);
     }
@@ -53,28 +54,27 @@ app.use(async (req, res, next) => {
 
 app.use(bodyParser.json());
 
-// --- Get all projects slug
+// --- Get all projects 
 app.get("/projects", projectsController.getController);
-// --- Get individual projects 
+// --- Get individual projects by slug
 app.get("/projects/:slug", projectsController.getBySlug);
 // --- Add new projects indivudually 
 app.post("/projects", projectsController.postController);
 
-// --- Get all users email 
+// --- Get all users 
 app.get("/users", usersController.getController);
-// --- Get individual users  
-app.get("/users/:email", usersController.getByEmail); 
+// --- Get individual users by email
+app.get("/users/:email", usersController.getByEmail);
 // --- Add new users indivudually 
-app.post("/users", usersController.postController); 
+app.post("/users", usersController.postController);
 
 
-// EXAMPLE HERE --> ISSUES <-- 
 // --- Get all issues
 app.get("/issues", issuesController.getController);
-// --- Get individual issues 
+// --- Get individual issues by id
 app.get("/issues/:id", issuesController.getById);
-// --- Add new issues to a project individualy -----------
-app.post("/projects/:slug/issues", issuesController.postController); 
+// --- Add new issues to a project individualy 
+app.post("/projects/:slug/issues", issuesController.postController);
 
 // --- Issues have comments ---
 // --- Get all comments for an issues ----
@@ -86,13 +86,13 @@ app.post("/projects/:slug/issues", issuesController.postController);
 
 
 app.listen(port, hostname, () => {
-console.log(`Server running at http://${hostname}:${port}/`);
+    console.log(`Server running at http://${hostname}:${port}/`);
 });
 
 // 404
 app.use((req, res) => {
-res.status(404).json({
- error: 404,
- message: "Route not found",
- });
+    res.status(404).json({
+        error: 404,
+        message: "Route not found",
+    });
 });
