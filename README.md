@@ -1,0 +1,74 @@
+# BugTracker
+Is an API designed to track projects, allowing us to insert users, that can insert issues, having a checking error implemented.   
+
+## Table of contents
+* [General information](#general-information)
+* [Setup](#Setup)
+* [Technologies](#Technologies)
+* [Example usage](#Example-usage)
+* [Change log](#Change-log)
+* [Roadmap](#Roadmap)
+* [Author info](#Author-info)
+
+## General information
+This project is the result of the Cloud Base Web Application subject carried out in the semester 2020 in CCT College (Higher Diploma in Science in Computing) Dublin, Ireland. 
+
+## Setup
+Describe how to install / setup your local environement / add link to demo version.
+
+## Technologies
+* Node - version 12.18.3.
+* Nodemon - version 2.0.6.
+* Body-parser - version 1.19.0.
+* Express - version 4.17.1.
+* MongoDB - version 3.6.2.
+* Herocku - version 7.44.0.  
+
+## Example usage
+Those were the rutes used in the project:
+* Get all projects - app.get("/projects", projectsController.getController);
+* Get individual projects by slug - app.get("/projects/:slug", projectsController.getBySlug);
+* Add new projects indivudually - app.post("/projects", projectsController.postController);
+* Get all users - app.get("/users", usersController.getController);
+* Get individual users by email - app.get("/users/:email", usersController.getByEmail);
+* Add new users indivudually - app.post("/users", usersController.postController);
+* Get all issues - app.get("/issues", issuesController.getController);
+* Get individual issues by id - app.get("/issues/:id", issuesController.getById);
+* Add new issues to a project individualy - app.post("/projects/:slug/issues", issuesController.postController);
+
+## Change log 
+The following are the feautures performed.
+* CA Part 1 - add and get data (Created in Oct 2020)
+  - Projects: 
+    - Get all projects
+    - Get individual project by slug
+    - Add new projects individually
+  - Users:
+    - Get all users
+    - Get individually user by email
+    - Add new users individually
+  - Issues:
+    - Get all issues
+    - Get individual issues by id
+    - Add new issues to a project individually
+      - Issues have comments
+
+* CA Part 2 - Error checking (Created in Nov 2020)
+  - All primises have a reject
+  - Any await calling a promise have a try-catch
+  - Null possibility of duplicate a user based on the email 
+  - Null possibility of duplicate a project based on the slug 
+  - Null possibility of add a project, an user or an issue without all the fields being filled out
+  - Creation of README.md
+
+## Roadmap
+A list of features that will be implemented:
+* Start working on your frontend (Nov 2020)
+* Docker-ise the application (Nov 2020)
+* Add in email notifications (Nov 2020)
+* API companies (January 2020)
+* User Interface (January 2020)
+* User Interface add projects (January 2020)
+
+## Author info
+Created by https://github.com/NazarethMaria - feel free to contact me! 
