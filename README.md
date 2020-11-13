@@ -14,15 +14,15 @@ Is an API designed to track projects, allowing us to insert users, that can inse
 This project is the result of the Cloud Base Web Application subject carried out in the semester 2020 in CCT College (Higher Diploma in Science in Computing) Dublin, Ireland. 
 
 ## Setup
-* Clone the repository
-git clone https://github.com/NazarethMaria/CBWA-CA1/tree/a2 
+* Clone the repository:  
+git clone  @https://github.com/NazarethMaria/CBWA-CA1/tree/a2 
 
-* Install NPM packages
-npm install
+* Install NPM packages: 
+@npm install
 
-* Execute
-$Env:MONGO_URI="mongo path"
-npm run start:dev
+* Execute: 
+@$Env:MONGO_URI="mongo path"
+@npm run start:dev
 
 ## Technologies
 * Node - version 12.18.3.
