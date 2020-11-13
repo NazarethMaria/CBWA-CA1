@@ -52,23 +52,14 @@ The following are the feautures performed.
     - Get individual issues by id
     - Add new issues to a project individually
       - Issues have comments
-
-* CA Part 2 - Error checking (Created in Nov 2020)
-  - All primises have a reject
-  - Any await calling a promise have a try-catch
-  - Null possibility of duplicate a user based on the email 
-  - Null possibility of duplicate a project based on the slug 
-  - Null possibility of add a project, an user or an issue without all the fields being filled out
   - Creation of README.md
 
 ## Roadmap
 A list of features that will be implemented:
+* Checking error (Nov 2020) 
 * Start working on your frontend (Nov 2020)
 * Docker-ise the application (Nov 2020)
 * Add in email notifications (Nov 2020)
-* API companies (January 2020)
-* User Interface (January 2020)
-* User Interface add projects (January 2020)
 
 ## Author info
 Created by https://github.com/NazarethMaria - feel free to contact me! 
