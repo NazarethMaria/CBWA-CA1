@@ -73,10 +73,6 @@ The following are the feautures performed.
 A list of features that will be implemented:
 * Start working on your frontend (Nov 2020)
 * Docker-ise the application (Nov 2020)
-* Add in email notifications (Nov 2020)
-* API companies (January 2020)
-* User Interface (January 2020)
-* User Interface add projects (January 2020)
 
 ## Author info
 Created by https://github.com/NazarethMaria - feel free to contact me! 
