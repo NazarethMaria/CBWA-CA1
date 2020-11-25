@@ -54,6 +54,21 @@ app.use(async (req, res, next) => {
 
 app.use(bodyParser.json());
 
+const path = require ('path');
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hbs'); 
+
+const PROJECTS = require('./models/projects')();
+app.get('/', async (req, res) => {
+    const { projectsList } = await PROJECTS.get();
+    res.render('index', {
+        title: 'BugTracker',
+        heading: 'Welcome to your BugTracker',
+        text: 'The following are the projects you will find in this app.',
+        projects: projectsList,  
+    });
+});
+
 // --- Get all projects 
 app.get("/projects", projectsController.getController);
 // --- Get individual projects by slug
