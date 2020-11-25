@@ -1,5 +1,5 @@
 # BugTracker
-Is an API designed to track projects, allowing us to insert users, that can insert issues, having a checking error implemented.   
+Is an API designed to track projects, allowing us to insert users, that can insert issues and comments.   
 
 ## Table of contents
 * [General information](#general-information)
